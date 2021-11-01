@@ -1,0 +1,40 @@
+
+<div style="min-width:100%;min-height: 400%;background-image: url('../assets/img/pic3.jpg');">
+  <br><br><br><br><br><br><br>
+
+
+<div class="container" style="max-width:600px;background-color: rgb(135, 209, 157);">
+    <h2>KANBAN BOARD LOGIN</h2>
+    <form [formGroup]="profileForm" (ngSubmit)="loginUser()">
+      
+       <!-- {{loginform.form.valid}}  -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" placeholder="Enter email" formControlName="email" 
+         required #email >
+         <mat-error *ngIf="checkError('email','required')">Email is required</mat-error>
+        <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched" >Email id is required</small> -->
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter password" formControlName="password" 
+        required #password >
+        <mat-error *ngIf="checkError('password','required')">Password is required</mat-error>
+      <!-- <small class="text-danger" [class.d-none]="password.valid || password.untouched" >password id is required</small> -->
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="remember"> Remember me</label>
+      </div>
+      <button [disabled]="!profileForm.valid" type="submit" class="btn btn-info">Login</button>
+
+    <small class="float-right" (click)="gotoregistration()">New user? Register here</small>
+      <!-- <small class="float-right" [routerLink]="['/registration']">New user? Register here</small> -->
+    </form>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+  
+
+
+  
+

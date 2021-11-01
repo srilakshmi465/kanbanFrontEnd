@@ -1,0 +1,86 @@
+<!-- <p>task works!</p>
+<div class="dialog-title">
+    <h1 mat-dialog-title>Create New project</h1> 
+  </div> 
+  
+  
+    <mat-dialog-content [formGroup]="form" class="dialog-content">
+  
+    <mat-form-field class="kanban-title">
+        <input matInput
+                placeholder="projectName"
+               formControlName="projectName">
+    </mat-form-field>
+  
+  <mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+  </mat-dialog-actions>  -->
+  <div style="min-width:100%;min-height: 400%;background-image: url('../assets/img/background.jpeg');">
+  <div class="page-container">
+    <div class="page-title">
+      <h1>Kanban Boards</h1>
+    </div>
+    <br>
+    <div>
+        <button class="btn btn-success" (click)="openAddDialog()"> Create Task </button>
+        
+    </div>
+
+    <div class="kanban-board">
+      <div class="list-container">
+          <h2>To do</h2>
+        <div
+          cdkDropList
+          id="todo"
+          [cdkDropListData]="todos"
+          [cdkDropListConnectedTo]="['inpro', 'done']"
+          class="board-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="sticky-note" *ngFor="let task of todos" cdkDrag
+          (dblclick)="openTaskDialog($event)"
+           
+           id="{{task.id}}">
+            {{task.title}}
+          </div>
+        </div>
+      </div>
+  
+       <div class="list-container">
+        <h2>In Progress</h2>
+        <div
+        cdkDropList
+        id="inpro"
+        [cdkDropListData]="inprogress"
+        [cdkDropListConnectedTo]="['todo', 'done']"
+        class="board-list"
+        (cdkDropListDropped)="drop($event)">
+          <div class="sticky-note" *ngFor="let task of inprogress" cdkDrag
+          (dblclick)="openTaskDialog($event)"
+          
+           id="{{task.id}}">
+            {{task.title}}
+          </div>
+        </div>
+    </div>
+  
+       <div class="list-container">
+          <h2>Done</h2>
+          <div
+          cdkDropList
+          id="done"
+          [cdkDropListData]="dones"
+          [cdkDropListConnectedTo]="['todo', 'inpro']"
+          class="board-list"
+          (cdkDropListDropped)="drop($event)">
+            <div class="sticky-note" *ngFor="let task of dones" cdkDrag
+            (dblclick)="openTaskDialog($event)"
+            
+            id="{{task.id}}">
+              {{task.title}}
+            </div>
+          </div> 
+      </div> 
+    </div>
+  </div>
+  </div>

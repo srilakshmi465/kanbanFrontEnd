@@ -1,0 +1,15 @@
+<form style="height: 210px; width: 200px;">
+    <div class="col-md-12 col-xl-12 col-sm-12">
+        <mat-label>Project Name</mat-label>
+        <mat-form-field>
+            <input matInput placeholder="Enter project id" id="projectId" [(ngModel)]="project.projectId" name="projectId" minlength="1" maxlength="50" required>
+        </mat-form-field>
+        <mat-form-field>  
+            <input matInput placeholder="Enter project name" id="projectName" [(ngModel)]="project.projectName" name="projectName" minlength="1" maxlength="50" required>
+        </mat-form-field>
+    </div>
+    <mat-dialog-actions align="center" >
+        <button style="color: green" (click)="saveProject(project, 'save')">Save</button>
+    <button style="color: red" (click)="saveProject(project, 'close')">Close</button>
+    </mat-dialog-actions>   
+</form>

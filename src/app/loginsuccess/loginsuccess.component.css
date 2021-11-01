@@ -1,0 +1,12 @@
+.main-card {
+    margin-top: 20px;
+    background-color: #15275e;
+    border-radius: 15px;
+    padding-bottom: 8px; 
+}
+
+.kanban-title {
+    font-weight: semi-bold;
+    color: rgb(193, 230, 63);
+    font-family: 'Open Sans', sans-serif;
+}
